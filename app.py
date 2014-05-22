@@ -3,9 +3,9 @@ import random
 import string
 import requests
 
-application = Flask(__name__)
+app = Flask(__name__)
 
-@application.route('/api/get_id')
+@app.route('/api/get_id')
 def find_log():
     while True:
         log_id = ''.join(random.choice(string.lowercase + string.digits) for _ in range(7))
@@ -15,9 +15,9 @@ def find_log():
         else:
             pass
 
-@application.route('/index', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    application.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
